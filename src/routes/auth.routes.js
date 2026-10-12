@@ -11,6 +11,7 @@ authRouter.post("/register",authController.register)
 export default authRouter;
 
 /**
- * Post/api/auth/login
+ * Post/api/auth/get-me
+ * 
  */
-
+authRouter.get("/get-me",authController.getMe)
