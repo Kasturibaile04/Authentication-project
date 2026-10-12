@@ -21,3 +21,9 @@ authRouter.get("/get-me",authController.getMe)
  */
 
 authRouter.get("/refresh-token",authController.refreshToken)
+
+/**
+ * Get/api/auth/logout
+ */
+
+authRouter.get("/logout",authController.logout)
