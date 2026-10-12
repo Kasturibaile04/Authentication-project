@@ -15,3 +15,9 @@ export default authRouter;
  * 
  */
 authRouter.get("/get-me",authController.getMe)
+
+/**
+ * Get/api/auth/refresh-token
+ */
+
+authRouter.get("/refresh-token",authController.refreshToken)
