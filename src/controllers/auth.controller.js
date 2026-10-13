@@ -138,9 +138,12 @@ export async function refreshToken(req,res) {
         expiresIn : "7d"
     })
 
-    
+    const newRefreshTokenHash = crypto.createHash("sha256").update(newRefreshToken).digest("hex");
 
-    return res.cookie("refreshToken", newRefreshToken,{
+    session.refreshTokenHash = newRefreshTokenHash;
+    await session.save();
+
+    res.cookie("refreshToken", newRefreshToken,{
         httpOnly : true,
         secure : true,
         sameSite : "strict",
@@ -148,7 +151,7 @@ export async function refreshToken(req,res) {
     })
 
 
-    res.status(200).json({
+    return res.status(200).json({
         message : "Access token refreshed successfully",
         accessToken
     })
