@@ -11,6 +11,11 @@ authRouter.post("/register",authController.register)
 export default authRouter;
 
 /**
+ * post/api/auth/login
+ */
+authRouter.post("/login",authController.login)
+
+/**
  * Post/api/auth/get-me
  * 
  */
@@ -27,3 +32,8 @@ authRouter.get("/refresh-token",authController.refreshToken)
  */
 
 authRouter.get("/logout",authController.logout)
+
+/**
+ * Get/api/auth/logout-all
+ */
+authRouter.get("/logout-all",authController.logoutAll)
